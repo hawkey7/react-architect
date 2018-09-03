@@ -1,9 +1,5 @@
 import React from 'react'
 
-export default class App extends React.Component{
-    render() {
-        return (
-            <div>this is a react app!!!~~!</div>
-        )
-    }
-}
+export default () => (
+  <div>this is a react app!!!~~</div>
+)
