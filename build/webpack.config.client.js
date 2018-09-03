@@ -11,7 +11,7 @@ const config = {
     output: {
         filename : '[name].[hash].js',
         path: path.join(__dirname, '../dist'),
-        publicPath: '/public'
+        publicPath: '/public/'
     },
     mode: 'development',
     module: {
@@ -51,7 +51,7 @@ if (isDev) {
         overlay: {
             errors: true
         },
-        publicPath: '/public', //html中路径无法找到，需要配置
+        publicPath: '/public/', //html中路径无法找到，需要配置
         historyApiFallback: {
             index: '/public/index.html' //所有404的请求返回这段html
         }
