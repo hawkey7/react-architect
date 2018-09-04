@@ -9,12 +9,12 @@ export default class App extends React.Component {
 
   render() {
     return [
-      <div>
+      <div key="banner">
         <Link to="/">home</Link>
         <br />
         <Link to="/detail">detail</Link>
       </div>,
-      <Routes />,
+      <Routes key="routes" />,
     ]
   }
 }

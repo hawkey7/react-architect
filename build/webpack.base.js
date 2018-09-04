@@ -1,10 +1,15 @@
 const path = require('path')
+console.log(path.resolve('client'))
 module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
     publicPath: '/public/',
   },
   resolve: {
+    modules: [
+        path.resolve('client'),
+        'node_modules'
+    ],
     extensions: ['.js', '.jsx']
   },
   module: {

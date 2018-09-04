@@ -7,16 +7,20 @@
     },
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "legacyDecorators": true
+        }
     },
     "extends": "airbnb",
     "rules": {
         "semi": [0],
         "react/jsx-filename-extension": 0,
-        " ": [0],
+        "indent": [0],
         "react/require-default-props": [0],
         "arrow-body-style": [0],
         "no-param-reassign": [0],
-        "linebreak-style": "off"
+        "linebreak-style": "off",
+        "no-console": "off"
     }
 } 
