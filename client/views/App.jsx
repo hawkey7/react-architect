@@ -1,5 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Routes from '../config/router'
 
-export default () => (
-  <div>this is a react app!!!!</div>
-)
+export default class App extends React.Component {
+  componentDidMount() {
+    // do something
+  }
+
+  render() {
+    return [
+      <div>
+        <Link to="/">home</Link>
+        <br />
+        <Link to="/detail">detail</Link>
+      </div>,
+      <Routes />,
+    ]
+  }
+}
