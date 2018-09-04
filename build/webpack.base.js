@@ -3,12 +3,12 @@ console.log(path.resolve('client'))
 module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
-    publicPath: '/public/',
+    publicPath: '/public/'
   },
   resolve: {
     modules: [
-        path.resolve('client'),
-        'node_modules'
+      path.resolve('client'),
+      'node_modules'
     ],
     extensions: ['.js', '.jsx']
   },
@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         test: /.jsx$/,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
       {
         test: /.js$/,
