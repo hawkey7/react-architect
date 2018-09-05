@@ -16,13 +16,14 @@
     "rules": {
         "semi": [0],
         "react/jsx-filename-extension": 0,
-        "indent": [0],
+        "indent": "off",
         "react/require-default-props": [0],
         "arrow-body-style": [0],
         "no-param-reassign": [0],
         "linebreak-style": "off",
         "no-console": "off",
         "import/no-unresolved": 0,
-        "comma-dangle": ["error", "never"]
+        "comma-dangle": ["error", "never"],
+        "react/destructuring-assignment": "off"
     }
 } 
