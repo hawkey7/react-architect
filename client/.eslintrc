@@ -24,6 +24,7 @@
         "no-console": "off",
         "import/no-unresolved": 0,
         "comma-dangle": ["error", "never"],
-        "react/destructuring-assignment": "off"
+        "react/destructuring-assignment": "off",
+        "react/jsx-indent": "off"
     }
 } 

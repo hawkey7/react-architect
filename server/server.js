@@ -1,10 +1,10 @@
 const express = require('express')
-const ReactSSR = require('react-dom/server')
 const fs = require('fs')
 const path = require('path')
 const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const serverRender = require('./utils/server-render')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -29,18 +29,21 @@ app.use('/api', require('./utils/proxy'))
 app.use(favicon(path.join(__dirname, '../favicon.ico')))
 
 if (!isDev) {
-  const serverEntry = require('../dist/server-entry').default
-  const template = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf-8')
+  const serverEntry = require('../dist/server-entry')
+  const template = fs.readFileSync(path.join(__dirname, '../dist/server.ejs'), 'utf-8')
   app.use('/public', express.static(path.join(__dirname, '../dist')))
-  app.get('*', function (req, res) {
-    const appString = ReactSSR.renderToString(serverEntry)
-    const html = template.replace('<!-- app -->', appString)
-    res.send(html)
+  app.get('*', function (req, res, next) {
+    serverRender(serverEntry, template, req, res).catch(next)
   })
 } else {
   const devStatic = require('./utils/dev-static.js')
   devStatic(app)
 }
+
+app.use(function (error, req, res, next) {
+  console.log(error)
+  res.status(500).send(error)
+})
 
 app.listen(3333, function () {
   console.log('server is listening on port 3333')
